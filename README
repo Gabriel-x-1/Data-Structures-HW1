@@ -1,0 +1,62 @@
+Ex1.
+
+This program searches for a person named "Homer" in a matrix of people and who they have talked to. The program reads in a square matrix of size n x n from a file named "input.txt", where n is the number of rows and columns in the matrix. The program creates two stacks, one for the rows and one for the columns of the matrix, and pushes the values into the stacks. The program then searches for Homer in the stack of inputs, while checking a condition for finding Homer given by the "cond" parameter.
+
+The function "search" takes in a Stack object, an integer n, and an integer cond. It returns an integer value representing the row index of Homer if found, and -1 if not found. The function searches the stack for a row that satisfies a condition for finding Homer, given by the "cond" parameter. It calculates the sum of elements in each row of the stack, and stores them in a vector "sum". It then checks each element of "sum" for a match with "cond". If a match is found, the function returns the row index of Homer.
+
+The main function reads the matrix values from the file into the matrix array "a". It initializes two stacks, one for rows and one for columns, and pushes the values into the stacks. It then calls the "search" function twice to verify if Homer is present in the matrix, once with the rows stack and a "cond" parameter of 0, and once with the columns stack and a "cond" parameter of n-1. If Homer is present in the matrix, the program outputs "Homer is the person with id: " and the row index of Homer. If Homer is not present, the program outputs "Everyone has talked to at least one other person. Homer is not present". Finally, the program closes the file and returns 0.
+
+>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<
+
+Ex2.
+
+This program includes a class definition for Order and opens an input file stream for input.txt.
+
+The Order class has two public member variables t and d, which represent the arrival time and duration of an order, respectively. It has two constructors, one with two integer parameters to initialize the t and d variables, and the other without parameters that initializes both variables to 0. It also has an empty destructor.
+
+The ifstream object f is created with the file name "input.txt" and will be used to read data from that file.
+
+Additionally, the code includes two header files: iostream and fstream, and a custom header file named queue1.h.
+
+First, it initializes a Queue object of type Order named queue. It also initializes some integer variables: time to keep track of the current time, N to store the number of orders, T to represent the closing time of the restaurant, and ordermax to keep track of the maximum duration to complete an order.
+
+Then, the program reads the values of N and T from the input file stream f and generates N Order objects by reading x and y values from f, initializing Order object b with these values, and enqueuing b into the queue.
+
+After that, the program processes the orders by using a do-while loop. It dequeues the first element from the queue, processes it, and repeats the process until the queue is empty.
+
+The program checks if the arrival time of the order is before the closing time of the restaurant. If it is, the program computes the completion time for the order and prints out the order's expected and actual completion times. If the order's completion time is after the closing time, the program indicates that the order was completed after the closing time.
+
+The program also keeps track of the longest duration of all orders and prints it out after processing all the orders.
+
+Finally, the program closes the file input stream and returns 0.
+
+>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<
+
+Ex3.
+
+The code defines a Term class that represents a term in a polynomial with an integer exponent and a template coefficient. It also defines three functions:
+
+- valuePoly(int x, LinkedList<T> a) takes a value x and a LinkedList of type T representing a polynomial and calculates the sum of the polynomial for that value of x. The function uses the pow() function from the math.h library to calculate the exponentiation. It outputs the result of the sum to the console.
+
+- sum(LinkedList<Term<T>> poly1, LinkedList<Term<T>> poly2) takes two LinkedLists of Term<T> objects, representing two polynomials, and returns a LinkedList representing the sum of the two polynomials. The resulting LinkedList is simplified so that terms with the same exponent are combined.
+
+- simplify(LinkedList<Term<T>> poly) is a helper function used by sum() to simplify the resulting polynomial. It takes a LinkedList of Term<T> objects and returns a LinkedList of the same objects, where terms with the same exponent are combined.
+
+The code includes the headers iostream, fstream, and math.h, as well as a custom header "list1.h", which defines the LinkedList and Node classes used in the code. The using namespace std statement is also included.
+
+
+- multiply function takes two polynomial lists poly1 and poly2 and returns their product as a new linked list of terms in the variable result. It does this by iterating over every term in poly1 and multiplying it with every term in poly2, and adding the resulting terms to result. The resulting list result is then simplified using the simplify function before being returned.
+
+- display function takes a polynomial list list and prints out its terms in a human-readable format using the TermDisplay function of the Term class (not shown here). It also adds plus signs between each term, except for the last one.
+
+- getLength function takes a polynomial list list and returns the number of terms it contains.
+
+- getZeroCoefs function takes a polynomial list list and returns the number of terms with zero or negative coefficients. This is useful for simplifying the polynomial and removing terms with coefficients that are zero.
+
+- sum_complex takes two complex numbers as input, adds their real and imaginary parts separately, and returns the sum as a new complex number.
+
+- display_complex takes a complex number as input and prints it out in the form "a + bi" where "a" is the real part and "b" is the imaginary part.
+
+The main function creates two polynomials using user input, displays them, adds them, evaluates the first polynomial at x=2, multiplies them, creates two complex numbers, and displays their information.
+
+Overall, this main function tests the implementation of the functions in the program by allowing the user to create their own input polynomials and checking if the output is what they expect. Additionally, it demonstrates the use of the complex struct and the functions used to manipulate it.
